@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            color: #555;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .input-group input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .input-group input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .forgot-password {
+            text-align: right;
+            font-size: 14px;
+        }
+        .forgot-password a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h1>Login</h1>
+
+        <form id="loginForm">
+            <!-- Campo de usuário -->
+            <div class="input-group">
+                <label for="username">Nome de Usuário:</label>
+                <input type="text" id="username" name="username" required placeholder="Digite seu nome de usuário">
+            </div>
+
+            <!-- Campo de senha -->
+            <div class="input-group">
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required placeholder="Digite sua senha">
+            </div>
+
+            <!-- Botão de login -->
+            <div class="input-group">
+                <input type="submit" value="Entrar">
+            </div>
+
+            <!-- Esqueci a senha -->
+            <div class="forgot-password">
+                <a href="#">Esqueci minha senha</a>
+            </div>
+
+            <!-- Mensagem de erro -->
+            <div id="errorMessage" class="error-message"></div>
+        </form>
+    </div>
+
+    <script>
+        // Função de validação de login (simulação de erro)
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Impede o envio do formulário para fins de demonstração
+
+            // Coletando os dados inseridos
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            
+            // Simulando uma validação de login (usuário e senha corretos são 'admin' e '1234')
+            if (username === 'admin' && password === '1234') {
+                alert('Login bem-sucedido!');
+                // Redirecionamento para a página inicial ou dashboard
+                // window.location.href = "dashboard.html"; // Descomente para redirecionar
+            } else {
+                document.getElementById('errorMessage').innerText = 'Usuário ou senha inválidos. Tente novamente.';
+            }
+        });
+    </script>
+
+</body>
+</html>
